@@ -10,6 +10,7 @@ namespace samples.SpecFlowDemo
     {
         static void Main(string[] args)
         {
+            // not much going on here.
         }
     }
 }

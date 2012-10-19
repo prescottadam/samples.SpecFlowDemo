@@ -10,14 +10,6 @@ namespace samples.SpecFlowDemo
         static PersonRepository()
         {
             Persons = new Dictionary<int, Person>();
-
-            // populate with some data
-            var p = new Person { Id = 1, DateOfBirth = new DateTime(1980, 1, 15), Name = "Todd" };
-            Persons.Add(p.Id, p);
-            p = new Person { Id = 2, DateOfBirth = new DateTime(1975, 6, 30), Name = "Ricky" };
-            Persons.Add(p.Id, p);
-            p = new Person { Id = 3, DateOfBirth = new DateTime(1985, 12, 1), Name = "Jeff" };
-            Persons.Add(p.Id, p);
         }
 
         public static Person Get(int id)

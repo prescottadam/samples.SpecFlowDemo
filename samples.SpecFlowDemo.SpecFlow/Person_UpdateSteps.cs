@@ -1,17 +1,22 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using TechTalk.SpecFlow;
 
 namespace samples.SpecFlowDemo.SpecFlow
 {
     [Binding]
-    public class Person_UpdateSteps
+    public class Person_UpdateSteps : Steps
     {
         [Given(@"I have an existing person record")]
         public void GivenIHaveAnExistingPersonRecord()
         {
-            ScenarioContext.Current.Set<Person>(
-                PersonRepository.Get(1));
+            var header = new[] { "Field", "Value" };
+            var t = new Table(header);
+            t.AddRow("id", "100");
+            t.AddRow("name", "Fred");
+            t.AddRow("date of birth", "12/15/1990");
+
+            Given("I have a new person record with the following properties", t);
+            When("I save the person");
         }
         
         [When(@"I change the person name to ""(.*)""")]
